@@ -1,0 +1,15 @@
+Crie um projeto flutter para seu aplicativo.
+Utilize como base para o arquivo main.dart, o main.dart disponível no link do gist.
+Crie dois arquivos novos: story.dart e story_brain.dart
+O arquivo story.dart é uma classe simples (como o question.dart do aplicativo de perguntas), de nome Story, que contêm 3 atributos: storyTitle, choice1 e choice2.
+Faça com que o construtor da classe inicialize todos os 3 atributos. Note que seu construtor deve ter os parâmetros nomeados (caso não se lembre como fazê-lo, veja este link). Por fim, as próximas instruções vão dar a idéia da ordem dos parâmetros deste construtor.
+O arquivo story_brain.dart deve conter uma classe de nome StoryBrain. Essa classe deve conter dois atributos privados: storyNumber e storyData. Os valores de storyData você obtém deste arquivo, também no gist.
+A classe StoryBrain também deve conter três métodos para obter os valores de storyTitle, choice1 e choice2, de um objeto de Story (lembre dos métodos que criamos no exercício do quiz. Os métodos devem se chamar getStory, getChoice1 e getChoice2. Eles devem retornar os valores de storyTitle, choice1 e choice2 para o item de storyData, na posição storyNumber.
+A classe StoryBrain deve conter um método restart, que deve setar storyNumber para 0
+A classe StoryBrain deve conter um método isChoice2Available, que verifica se existe uma "choice2" na história (e vai fazer com que o segundo botão da tela fique invisível, mais sobre isso nas próximas instruções). Existe uma choice2 caso o valor de storyNumber seja inferior a 3.
+Por fim, crie o método nextStory, na classe StoryBrain. Ele deve receber um parâmetro int, que é o número da opção do usuário (será 1, ou 2, uma vez que cada "story" tem duas opções). Você deve atualizar o valor de storyNumber conforme o guia no arquivo Story-Plan.pdf, anexo nesta tarefa. Note que, caso o storyNumber seja: 3, 4, ou 5, e o usuário clique no botão "Reinicio", o método restart deve ser chamado (e o jogo recomeça).
+Agora que as classes fundamentais estão prontas, você deve voltar ao main.dart. Primeiro, crie um objeto de StoryBrain, como atributo da classe StoryPageState. Lembre-se que você deve inicializá-lo. (fizemos o mesmo no quiz...)
+Agora, onde você lê 'O texto da história vem aqui', você deve usar o objeto de StoryBrain e seu método getStory para atribuir o texto ao widget Text.
+Nos dois TextButton, onde você lé 'Texto da opção X', você deve substituir, respectivamente pelas chamadas aos métodos getChoice1 e getChoice2, da classe StoryBrain.
+Por fim, nas chamadas de onPressed, de cada um dos botões, faça com que o método nextStory seja chamado, passando por parâmetro 1, para o botâo da opção 1 e 2 para o botão da opção 2. Lembre-se de que há algo EXTRA que deve ser feito para que a interface seja atualizada conforme o ESTADO da aplicação muda.
+Execute seu aplicativo e verifique o fluxo das histórias.
